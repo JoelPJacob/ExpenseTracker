@@ -40,7 +40,6 @@ const AddTransactionScreen = ({ navigation }) => {
         dispatch(addTransaction(transaction));
         resetForm();
         Toast("Transaction Added Successfully");
-        navigation.navigate('Transactions');
       }}
     >
       {({ handleChange, handleSubmit, setFieldValue, values, errors, touched }) => (
@@ -71,8 +70,8 @@ const AddTransactionScreen = ({ navigation }) => {
             required={true}
             error={touched.date && errors.date}
           />
-
           <Button title="Add Transaction" onPress={handleSubmit} />
+          <Button title="View Transaction" onPress={() => navigation.navigate('Transactions')} style={{backgroundColor:"#007AFF"}}/>
         </View>
       )}
     </Formik>
