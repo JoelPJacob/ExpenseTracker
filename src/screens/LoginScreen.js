@@ -1,12 +1,10 @@
 import React from 'react';
-import { View, Alert, StyleSheet, Text, TouchableOpacity, ScrollView } from 'react-native';
+import { View, StyleSheet, Text, TouchableOpacity, ScrollView } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../redux/userSlice';
-import Button from '../components/Button';
-import InputField from '../components/InputField';
 import { Formik } from 'formik';
 import { loginValidationSchema } from '../validations';
-import Toast from '../components/ToastComponent';
+import { Button, InputField, Toast } from '../components';
 
 const LoginScreen = ({ navigation }) => {
   const dispatch = useDispatch();

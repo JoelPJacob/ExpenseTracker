@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, Alert, Image, ActivityIndicator } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { logout } from '../redux/userSlice';
-import Button from '../components/Button';
+import {Button} from '../components';
 import { getItem } from '../utils/storage';
 import ProfilePicture from '../../assets/avatar.png'
 

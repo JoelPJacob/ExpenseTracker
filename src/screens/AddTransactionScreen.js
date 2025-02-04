@@ -3,11 +3,9 @@ import { View, StyleSheet, Text } from 'react-native';
 import { Formik } from 'formik';
 import { useDispatch } from 'react-redux';
 import { addTransaction } from '../redux/transactionSlice';
-import InputField from '../components/InputField';
-import Button from '../components/Button';
 import { transactionValidationSchema } from '../validations/transactionValidation';
-import Toast from '../components/ToastComponent';
-import { getItem } from '../utils/storage'
+import { getItem } from '../utils/storage';
+import { CalendarPicker, Button, InputField, Toast } from '../components';
 
 const AddTransactionScreen = ({ navigation }) => {
   const [user, setUser] = useState(null);
@@ -24,26 +22,28 @@ const AddTransactionScreen = ({ navigation }) => {
 
   return (
     <Formik
-      initialValues={{ title: '', amount: '' }}
+      initialValues={{ title: '', amount: '', date: null }}
       validationSchema={transactionValidationSchema}
       onSubmit={(values, { resetForm }) => {
         if (!user) {
           Toast("User not found!");
           return;
         }
-        const transaction = { 
-          id: Date.now(), 
-          ...values, 
-          userEmail: user.email, 
+        const transaction = {
+          id: Date.now(),
+          title: values.title,
+          amount: parseFloat(values.amount),
+          userEmail: user.email,
+          date: values.date ? values.date.toISOString() : '',
         };
-        
+
         dispatch(addTransaction(transaction));
         resetForm();
         Toast("Transaction Added Successfully");
         navigation.navigate('Transactions');
       }}
     >
-      {({ handleChange, handleSubmit, values, errors, touched }) => (
+      {({ handleChange, handleSubmit, setFieldValue, values, errors, touched }) => (
         <View style={styles.container}>
           <InputField
             label="Title"
@@ -63,6 +63,14 @@ const AddTransactionScreen = ({ navigation }) => {
             required={true}
           />
           {touched.amount && errors.amount && <Text style={styles.errorText}>{errors.amount}</Text>}
+
+          <CalendarPicker
+            label="Date"
+            value={values.date}
+            onChange={(date) => setFieldValue('date', date)}
+            required={true}
+            error={touched.date && errors.date}
+          />
 
           <Button title="Add Transaction" onPress={handleSubmit} />
         </View>

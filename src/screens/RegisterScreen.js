@@ -3,17 +3,16 @@ import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-nati
 import { Formik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import { registerUser } from '../redux/userSlice';
-import InputField from '../components/InputField';
-import Button from '../components/Button';
 import { registerValidationSchema } from '../validations';
-import Toast from '../components/ToastComponent';
+import { Button, InputField, Toast } from '../components';
+
 
 const RegisterScreen = ({ navigation }) => {
   const dispatch = useDispatch();
-  const users = useSelector((state) => state.user.users); 
+  const users = useSelector((state) => state.user.users);
 
   const handleRegister = (values) => {
-    const existingUser = users.find((u) => u.email === values.email); // Check if the user already exists
+    const existingUser = users.find((u) => u.email === values.email); // Checking the user already exists
 
     if (existingUser) {
       Toast('User already registered with this email');
@@ -32,7 +31,7 @@ const RegisterScreen = ({ navigation }) => {
       <Formik
         initialValues={{ name: '', email: '', password: '' }}
         validationSchema={registerValidationSchema}
-        onSubmit={handleRegister} 
+        onSubmit={handleRegister}
       >
         {({ handleChange, handleSubmit, values, errors, touched, handleBlur }) => (
           <View style={styles.formContainer}>
