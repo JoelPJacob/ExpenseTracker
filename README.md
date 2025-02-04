@@ -1,97 +1,100 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Expense Tracker
 
-# Getting Started
+**Developer:** Joel P Jacob
+**Project:** Expense Tracker
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+---
 
-## Step 1: Start Metro
+## Project Overview:
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+The objective of this project is to create a simple mobile app using React Native that tracks expenses, allowing users to add, view, and manage their expenses efficiently. This project evaluates skills in working with React Native, handling state management, implementing CRUD operations, and creating a responsive user interface.
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+---
 
-```sh
-# Using npm
-npm start
+## Features
 
-# OR using Yarn
-yarn start
-```
+### User Authentication
+- **Registration Screen**: Users can register with Name, Email, and Password. Inputs are validated (e.g., valid email format, password length).
+- **Login Screen**: Users can log in using their email and password. Credentials are validated against stored data.
+- **Session Persistence**: Users remain logged in until they manually log out. Authenticated users are redirected to the Home screen on app restart.
+- **Logout**: A logout button on the Home screen clears session data and redirects to the Login screen.
 
-## Step 2: Build and run your app
+### Expense Management
+- **Add Transaction**: Users can add transactions with a Title and Amount. Data is saved to local storage.
+- **List Transactions**: All transactions are displayed in a list with Title and Amount. Users can navigate to this screen from the Home screen.
+- **Delete Transactions**: Users can delete existing transactions. Local storage is updated after changes.
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+### Data Persistence
+- All data (user accounts, transactions) persists across app restarts.
+- Transactions are tied to the logged-in user (users only see their own data).
+---
 
-### Android
+## Technical Setup
 
-```sh
-# Using npm
-npm run android
+### Dependencies
+- **React Native** (CLI)
+- **Local Storage**: MMKV.
+- **React Navigation** for screen navigation.
+- **Redux** for state management.
+---
 
-# OR using Yarn
-yarn android
-```
+**Usage Instructions:**
+-----------------------
 
-### iOS
+1.  **Clone the Repository:**
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+    -   Run the following command to clone the repository:
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+    `git clone https://github.com/JoelPJacob/ExpenseTracker.git`
 
-```sh
-bundle install
-```
+2.  **Install Dependencies:**
 
-Then, and every time you update your native dependencies, run:
+    -   Navigate to the project directory and install the required dependencies:
 
-```sh
-bundle exec pod install
-```
+    `cd ExpenseTracker
+    
+    npm install`
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+3.  **Run the Project:**
 
-```sh
-# Using npm
-npm run ios
+    -   For Android:
 
-# OR using Yarn
-yarn ios
-```
+        bash
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+        `npm run-android`
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+4.  **APK Testing:**
 
-## Step 3: Modify your app
+    -   You can also download and install the APK file to test the app on an Android device.
 
-Now that you have successfully run the app, let's make changes!
+* * * * *
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+# Technical Expectations
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+## State Management
+- **Redux** is used for managing the application state. This ensures a centralized and predictable state management system for user authentication, transactions, and other global data.
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+## Navigation
+- **Stack and Tab Navigators** are implemented using **React Navigation** for seamless navigation between screens.
+  - Example flows:
+    - Login → Home
+    - Home → Transactions
+  - Tab navigation is used for switching between key screens like Home and Transactions.
 
-## Congratulations! :tada:
+## Code Quality
+- **Clean, Reusable Components**: Components are modular and reusable, following best practices for React Native development.
+- **Proper Error Handling**: 
+  - Login failures, invalid inputs, and other edge cases are handled gracefully with user-friendly error messages.
+- **Meaningful Variable Names and Folder Structure**:
+  - Variables, functions, and components are named descriptively to improve code readability.
+  - The project follows a well-organized folder structure for better maintainability.
 
-You've successfully run and modified your React Native App. :partying_face:
 
-### Now what?
+* * * * *
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+**Contact Information:**
+------------------------
 
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+-   **Email**: joelpjacob@gmail.com
+-   **GitHub**: <https://github.com/JoelPJacob>
+-   **LinkedIn**: <https://linkedin.com/in/joel-p-jacob>
