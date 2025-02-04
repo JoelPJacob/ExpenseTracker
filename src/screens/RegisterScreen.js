@@ -12,7 +12,6 @@ const RegisterScreen = ({ navigation }) => {
   const dispatch = useDispatch();
   const users = useSelector((state) => state.user.users); 
 
-  // Handle Registration
   const handleRegister = (values) => {
     const existingUser = users.find((u) => u.email === values.email); // Check if the user already exists
 
