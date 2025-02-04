@@ -79,7 +79,6 @@ The objective of this project is to create a simple mobile app using React Nativ
   - Example flows:
     - Login → Home
     - Home → Transactions
-  - Tab navigation is used for switching between key screens like Home and Transactions.
 
 ## Code Quality
 - **Clean, Reusable Components**: Components are modular and reusable, following best practices for React Native development.
